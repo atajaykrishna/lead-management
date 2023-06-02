@@ -79,7 +79,7 @@ function CustomerData() {
       </>
     );
   }
-  return <div className="no-data">OOPS, No calls today!</div>;
+  return <div className="no-data">OOPS, No Customer Data Found!</div>;
 }
 
 export default CustomerData;
