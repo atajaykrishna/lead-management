@@ -23,7 +23,6 @@ function CallsToday() {
           {}
         );
         setDbdata(filteredData);
-        console.log(dbdata);
       }
     });
   }, []);

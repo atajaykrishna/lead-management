@@ -3,9 +3,9 @@ import InputTextBox from "./InputTextBox";
 import RadioButton from "./RadioButton";
 import { db } from "./firebase";
 import { uid } from "uid";
-import { set, ref, onValue } from "firebase/database";
+import { set, ref, onValue, update } from "firebase/database";
 import "./style.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function HomePage() {
   const [text, setText] = useState({
@@ -111,6 +111,8 @@ function HomePage() {
     },
   ];
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -126,40 +128,55 @@ function HomePage() {
     } = text;
     const { interested, introductionAndVideo, quotation } = radio;
 
-    const uuid = uid();
-    set(ref(db, `/${uuid}`), {
-      uuid,
-      customerName,
-      phoneNumber,
-      address,
-      lastCallDate,
-      nextCallDate,
-      callsMade,
-      interestedMachine,
-      offeredPrice,
-      interested,
-      introductionAndVideo,
-      quotation,
-    });
+    if (!id) {
+      const uuid = uid();
+      set(ref(db, `/${uuid}`), {
+        uuid,
+        customerName,
+        phoneNumber,
+        address,
+        lastCallDate,
+        nextCallDate,
+        callsMade,
+        interestedMachine,
+        offeredPrice,
+        interested,
+        introductionAndVideo,
+        quotation,
+      });
 
-    console.log(text);
-    console.log(radio);
-
-    setText({
-      customerName: "",
-      phoneNumber: "",
-      address: "",
-      lastCallDate: "",
-      nextCallDate: "",
-      callsMade: "",
-      interestedMachine: "",
-      offeredPrice: "",
-    });
-    setRadio({
-      interested: "",
-      introductionAndVideo: "",
-      quotation: "",
-    });
+      setText({
+        customerName: "",
+        phoneNumber: "",
+        address: "",
+        lastCallDate: "",
+        nextCallDate: "",
+        callsMade: "",
+        interestedMachine: "",
+        offeredPrice: "",
+      });
+      setRadio({
+        interested: "",
+        introductionAndVideo: "",
+        quotation: "",
+      });
+    } else {
+      update(ref(db, `/${id}`), {
+        id,
+        customerName,
+        phoneNumber,
+        address,
+        lastCallDate,
+        nextCallDate,
+        callsMade,
+        interestedMachine,
+        offeredPrice,
+        interested,
+        introductionAndVideo,
+        quotation,
+      });
+      setTimeout(() => navigate("/customerdata"), 500);
+    }
   };
 
   const onChange = (event) => {
@@ -217,7 +234,11 @@ function HomePage() {
         ))}
         <br />
         <br />
-        <input className="submit-button" type="submit" value="Submit" />
+        <input
+          className="submit-button"
+          type="submit"
+          value={id ? "Update" : "Save"}
+        />
       </form>
     </div>
   );
