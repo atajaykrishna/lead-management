@@ -178,6 +178,28 @@ function HomePage() {
     }));
   };
 
+  const [dbdata, setDbdata] = useState({});
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    onValue(ref(db), (snapshot) => {
+      setDbdata({});
+      const data = snapshot.val();
+      if (data !== null) {
+        setDbdata({ ...data });
+      }
+    });
+  }, [id]);
+
+  useEffect(() => {
+    if (id) {
+      setText({ ...dbdata[id] });
+    } else {
+      setText({});
+    }
+  }, [id, dbdata]);
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -185,7 +207,7 @@ function HomePage() {
           <InputTextBox
             key={input.id}
             {...input}
-            value={text[input.name]}
+            value={text[input.name] || "  "}
             onChange={onChange}
           />
         ))}

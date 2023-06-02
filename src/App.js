@@ -21,7 +21,7 @@ const App = () => {
               element={<CustomerData />}
             ></Route>
             <Route exact path="/callstoday" element={<CallsToday />}></Route>
-            <Route exact path="/editform/:uuid" element={<HomePage />} />
+            <Route exact path="/editform/:id" element={<HomePage />} />
           </Route>
         </Routes>
       </div>

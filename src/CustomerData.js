@@ -5,27 +5,25 @@ import "./style.css";
 import { NavLink } from "react-router-dom";
 
 function CustomerData() {
-  const [dbdata, setDbdata] = useState([]);
+  const [dbdata, setDbdata] = useState({});
 
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
-      setDbdata([]);
+      setDbdata({});
       const data = snapshot.val();
       if (data !== null) {
-        Object.values(data).map((dbdata) =>
-          setDbdata((oldArray) => [...oldArray, dbdata])
-        );
+        setDbdata({ ...data });
       }
     });
   }, []);
 
-  const onDelete = (data) => {
+  const onDelete = (id) => {
     if (window.confirm("Are you sure, you want to delete ?")) {
-      remove(ref(db, `/${data.uuid}`));
+      remove(ref(db, `/${id}`));
     }
   };
 
-  if (dbdata.length > 0) {
+  if (Object.keys(dbdata).length > 0) {
     return (
       <>
         <table>
@@ -44,29 +42,31 @@ function CustomerData() {
               <th>Introduction & Video</th>
               <th>Action</th>
             </tr>
-            {dbdata.map((data) => (
-              <tr key={data.uuid}>
-                <td data-title="Customer Name">{data.customerName}</td>
-                <td data-title="Phone Number">{data.phoneNumber}</td>
-                <td data-title="Address">{data.address}</td>
-                <td data-title="Last Call date">{data.lastCallDate}</td>
-                <td data-title="Next Call date">{data.nextCallDate}</td>
-                <td data-title="Calls Made">{data.callsMade}</td>
+            {Object.keys(dbdata).map((id) => (
+              <tr key={id}>
+                <td data-title="Customer Name">{dbdata[id].customerName}</td>
+                <td data-title="Phone Number">{dbdata[id].phoneNumber}</td>
+                <td data-title="Address">{dbdata[id].address}</td>
+                <td data-title="Last Call date">{dbdata[id].lastCallDate}</td>
+                <td data-title="Next Call date">{dbdata[id].nextCallDate}</td>
+                <td data-title="Calls Made">{dbdata[id].callsMade}</td>
                 <td data-title="Interested Machine">
-                  {data.interestedMachine}
+                  {dbdata[id].interestedMachine}
                 </td>
-                <td data-title="Offered Price">{data.offeredPrice}</td>
-                <td data-title="Interested">{data.interested}</td>
-                <td data-title="Quotation">{data.quotation}</td>
-                <td data-title="Intro & Video">{data.introductionAndVideo}</td>
+                <td data-title="Offered Price">{dbdata[id].offeredPrice}</td>
+                <td data-title="Interested">{dbdata[id].interested}</td>
+                <td data-title="Quotation">{dbdata[id].quotation}</td>
+                <td data-title="Intro & Video">
+                  {dbdata[id].introductionAndVideo}
+                </td>
                 <td data-title="Action">
                   <div>
-                    <NavLink to={`/editform/${data.uuid}`}>
+                    <NavLink to={`/editform/${id}`}>
                       <button className="edit-button">Edit</button>
                     </NavLink>
                     <button
                       className="delete-button"
-                      onClick={() => onDelete(data)}
+                      onClick={() => onDelete(id)}
                     >
                       Delete
                     </button>
