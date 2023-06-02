@@ -3,6 +3,8 @@ import { db } from "./firebase";
 import { ref, onValue, remove } from "firebase/database";
 import "./style.css";
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CustomerData() {
   const [dbdata, setDbdata] = useState({});
@@ -20,6 +22,9 @@ function CustomerData() {
   const onDelete = (id) => {
     if (window.confirm("Are you sure, you want to delete ?")) {
       remove(ref(db, `/${id}`));
+      toast.success("Successfully deleted data", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   };
 
@@ -71,6 +76,7 @@ function CustomerData() {
                       Delete
                     </button>
                   </div>
+                  <ToastContainer />
                 </td>
               </tr>
             ))}

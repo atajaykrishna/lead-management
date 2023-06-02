@@ -6,6 +6,8 @@ import { uid } from "uid";
 import { set, ref, onValue, update } from "firebase/database";
 import "./style.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function HomePage() {
   const [text, setText] = useState({
@@ -160,6 +162,11 @@ function HomePage() {
         introductionAndVideo: "",
         quotation: "",
       });
+      setTimeout(() => {
+        toast.success("Successfully saved data", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }, 1000);
     } else {
       update(ref(db, `/${id}`), {
         id,
@@ -175,8 +182,15 @@ function HomePage() {
         introductionAndVideo,
         quotation,
       });
-      setTimeout(() => navigate("/customerdata"), 500);
+
+      setTimeout(() => {
+        toast.success("Successfully updated data", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }, 1000);
     }
+
+    setTimeout(() => navigate("/customerdata"), 500);
   };
 
   const onChange = (event) => {
@@ -239,6 +253,7 @@ function HomePage() {
           type="submit"
           value={id ? "Update" : "Save"}
         />
+        <ToastContainer />
       </form>
     </div>
   );
