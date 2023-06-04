@@ -206,12 +206,14 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  
 }
 
 .navbar {
   height: 60px;
   background-color: #e5effe;
   position: relative;
+  width: 100%;
 }
 
 
@@ -367,11 +369,12 @@ form{
   display: flex;
   flex-direction: column;
   width: 280px;
+  margin: 10px;
 }
 
 input{
-  padding: 15px;
-  margin: 5px 0px;
+  padding: 20px;
+  margin: 5px 4px;
   border-radius: 5px;
   border: 1px solid gray;
 }
@@ -383,6 +386,24 @@ label{
   
 }
 
+.label-container{
+  margin-left: 10px;
+}
+
+span {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: none;
+}
+
+input:invalid[touched="true"]{
+  border: 1px solid red;
+}
+
+input:invalid[touched="true"] ~ span{
+  display: block;
+}
 
 
 

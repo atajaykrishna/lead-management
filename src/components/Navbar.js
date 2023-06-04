@@ -1,11 +1,11 @@
 import React from "react";
-import "./style.css";
+import "../style.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import mainLogo from "./images/logo.png";
-import HamBurger from "./images/hamburger.png";
+import mainLogo from "../images/logo.png";
+import HamBurger from "../images/hamburger.png";
 
-function Header() {
+function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleShowNavbar = () => {
@@ -42,4 +42,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Navbar;

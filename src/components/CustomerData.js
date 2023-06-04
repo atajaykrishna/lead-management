@@ -1,44 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import { ref, onValue, remove } from "firebase/database";
-import "./style.css";
+import "../style.css";
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function CallsToday() {
+function CustomerData() {
   const [dbdata, setDbdata] = useState({});
 
   useEffect(() => {
     onValue(ref(db), (snapshot) => {
       setDbdata({});
       const data = snapshot.val();
-      const currentDate = getCurrentDate();
       if (data !== null) {
-        const filteredData = Object.entries(data).reduce(
-          (acc, [key, value]) => {
-            if (value.nextCallDate === currentDate) {
-              acc[key] = value;
-            }
-            return acc;
-          },
-          {}
-        );
-        setDbdata(filteredData);
+        setDbdata({ ...data });
       }
     });
   }, []);
 
-  const getCurrentDate = () => {
-    const date = new Date();
-    let currentDay = String(date.getDate()).padStart(2, "0");
-    let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
-    let currentYear = date.getFullYear();
-    const currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
-    return currentDate;
-  };
-
   const onDelete = (id) => {
     if (window.confirm("Are you sure, you want to delete ?")) {
       remove(ref(db, `/${id}`));
+      toast.success("Successfully deleted data", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   };
 
@@ -61,7 +47,6 @@ function CallsToday() {
               <th>Introduction & Video</th>
               <th>Action</th>
             </tr>
-
             {Object.keys(dbdata).map((id) => (
               <tr key={id}>
                 <td data-title="Customer Name">{dbdata[id].customerName}</td>
@@ -81,7 +66,7 @@ function CallsToday() {
                 </td>
                 <td data-title="Action">
                   <div>
-                    <NavLink to={`/editform/${id}`}>
+                    <NavLink to={`/update/${id}`}>
                       <button className="edit-button">Edit</button>
                     </NavLink>
                     <button
@@ -91,6 +76,7 @@ function CallsToday() {
                       Delete
                     </button>
                   </div>
+                  <ToastContainer />
                 </td>
               </tr>
             ))}
@@ -99,7 +85,7 @@ function CallsToday() {
       </>
     );
   }
-  return <div className="no-data">OOPS, No calls today!</div>;
+  return <div className="no-data">OOPS, No Customer Data Found!</div>;
 }
 
-export default CallsToday;
+export default CustomerData;

@@ -1,9 +1,9 @@
 import React from "react";
-import HomePage from "./HomePage";
-import Header from "./Header";
+import HomePage from "./components/HomePage";
+import Header from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
-import CustomerData from "./CustomerData";
-import CallsToday from "./CallsToday";
+import CustomerData from "./components/CustomerData";
+import CallsToday from "./components/CallsToday";
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
               element={<CustomerData />}
             ></Route>
             <Route exact path="/callstoday" element={<CallsToday />}></Route>
-            <Route exact path="/editform/:id" element={<HomePage />} />
+            <Route exact path="/update/:id" element={<HomePage />} />
           </Route>
         </Routes>
       </div>
