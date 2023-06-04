@@ -1,6 +1,6 @@
 import React from "react";
 import HomePage from "./components/HomePage";
-import Header from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import CustomerData from "./components/CustomerData";
 import CallsToday from "./components/CallsToday";
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <div>
-        <Header />
+        <Navbar />
       </div>
       <div>
         <Routes>

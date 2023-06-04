@@ -17,7 +17,9 @@ function Navbar() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <img src={mainLogo} alt="Prashant Machine Tools" />
+            <NavLink to="/">
+              <img src={mainLogo} alt="Prashant Machine Tools" />
+            </NavLink>
           </div>
           <div className="menu-icon" onClick={handleShowNavbar}>
             <img src={HamBurger} alt="hamburger"></img>
