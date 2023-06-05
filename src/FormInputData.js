@@ -63,7 +63,7 @@ const inputAttributes = [
     required: true,
   },
   {
-    type: "text",
+    type: "tel",
     name: "offeredPrice",
     label: "Offered Price",
     required: true,
