@@ -6,7 +6,7 @@ const inputAttributes = [
     required: true,
   },
   {
-    type: "text",
+    type: "tel",
     name: "phoneNumber",
     label: "Phone Number",
     required: true,
