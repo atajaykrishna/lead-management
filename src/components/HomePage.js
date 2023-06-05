@@ -86,10 +86,10 @@ function HomePage() {
   }, [id]);
 
   useEffect(() => {
-    if (id) {
+    if (id && dbdata[id]) {
       setFormData({ ...dbdata[id] });
     } else {
-      setFormData({});
+      setFormData(initialFormData);
     }
   }, [id, dbdata]);
 
@@ -126,7 +126,6 @@ function HomePage() {
                   onChange={(e) => onInputChange(e)}
                   required={field.required}
                 />
-                <span>{field.errorMessage}</span>
               </div>
             )}
           </div>
