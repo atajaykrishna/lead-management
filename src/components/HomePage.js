@@ -71,7 +71,7 @@ function HomePage() {
       }
     } else {
       toast.error("Please enter valid input(s)", {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_RIGHT,
       });
     }
   };
