@@ -63,3 +63,6 @@ To run the Marketing Data Collection Web Application locally, follow these steps
 2. Click the "Save" button to submit the form and navigate to the customer data page.
 3. On the customer data page, you can view and edit the collected information.
 4. To view customers with a next call date matching the current day, navigate to the "Today's Call" page.
+
+
+Thanks You!
