@@ -40,12 +40,12 @@ To run the Marketing Data Collection Web Application locally, follow these steps
 
 ## Tech Stack
 
-- ReactJS
-- CSS
-- React Toastify (for displaying notifications)
-- React Router DOM (for navigation)
-- Firebase (for data storage)
-- Firebase UID (for unique user identification)
+ 1. ReactJS: The application's front-end was developed using ReactJS, a popular JavaScript library for building user interfaces.
+ 2. CSS: Styling and layout were implemented using CSS.
+ 3. React Toastify: The React Toastify library was used to display notifications and alerts to users.
+ 4. React Router DOM: This library facilitated navigation and routing within the application.
+ 5. Firebase: Firebase, a cloud-based platform, was utilized for data storage and retrieval.
+ 6. UID: The UID library was employed for unique user identification.
 
 ## Versions
 
