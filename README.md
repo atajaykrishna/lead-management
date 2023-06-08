@@ -21,7 +21,7 @@ The application includes a separate page called "Today's Call" that dynamically 
 To run the Marketing Data Collection Web Application locally, follow these steps:
 
 1. Clone the repository: 
-    - git clone https://github.com/your-username/marketing-data-collection-app.git
+    - git clone https://github.com/Kishanthakur/prashant-machine-tools
 2. Navigate to the project directory: 
     - cd marketing-data-collection-app
 3. Install the dependencies:
@@ -36,6 +36,25 @@ To run the Marketing Data Collection Web Application locally, follow these steps
 5. Start the application:
     - npm start
 6. Open your browser and visit http://localhost:3000 to access the application
+
+
+## Tech Stack
+
+- ReactJS
+- CSS
+- React Toastify (for displaying notifications)
+- React Router DOM (for navigation)
+- Firebase (for data storage)
+- Firebase UID (for unique user identification)
+
+## Versions
+
+- "firebase": "^9.21.0",
+- "react": "^18.2.0",
+- "react-dom": "^18.2.0",
+- "react-scripts": "^2.1.3",
+- "react-toastify": "^9.0.3",
+- "uid": "^2.0.2",
 
 
 ## Usage
