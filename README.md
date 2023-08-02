@@ -1,7 +1,7 @@
 
 # Lead-a-Lot - A Lead management web application
 
-Welcome to the Lead-a-Lot! This application is designed to simplify the process of collecting and managing marketing data for an organization. It provides an intuitive user interface and several useful features to streamline data entry, organization, and follow-up activities. 
+Welcome to the Lead-a-Lot! This application is designed to simplify the process of collecting and managing leads for an organization. It provides an intuitive user interface and several useful features to streamline data entry, organization, and follow-up activities. 
 
 ## Features
 
