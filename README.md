@@ -1,5 +1,5 @@
 
-Demo : https://prashant-machine-tools.netlify.app/
+Demo : https://lead-a-lot.netlify.app/
 
 # Lead-a-Lot - A Lead management web application
 
@@ -18,19 +18,14 @@ The application includes a separate page called "Today's Call" that dynamically 
 
 ## Installation
 
-To run the Marketing Data Collection Web Application locally, follow these steps:
+To run the Lead-a-lot Web Application locally, follow these steps:
 
 1. Clone the repository: 
-    - git clone https://github.com/Kishanthakur/prashant-machine-tools
+    - git clone https://github.com/kishanthakur/lead-a-lot
 2. Navigate to the project directory: 
-    - cd marketing-data-collection-app
+    - cd lead-a-lot
 3. Install the dependencies:
     - npm install
-    -  npm install react
-    -  npm install react-router-dom
-    -  npm install firebase
-    -  npm i react-toastify@9.0.3
-    -  npm install uid
 4. Create a Firebase project and set up the necessary configurations (e.g., API keys, database).
    Replace the Firebase configuration placeholders in the project with your own Firebase credentials
 5. Start the application:
