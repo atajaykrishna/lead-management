@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Lead-a-Lot - A Lead management web application
 
@@ -59,3 +60,6 @@ To run the Lead-a-lot Web Application locally, follow these steps:
 
 
 Thanks You!
+=======
+# lead-management
+>>>>>>> 7cb7b36df37871cabd8764a60e7944c39aa2a80c
