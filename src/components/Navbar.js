@@ -18,7 +18,7 @@ function Navbar() {
         <div className="container">
           <div className="logo">
             <NavLink to="/">
-              <img src={mainLogo} alt="Prashant Machine Tools" />
+              <img src={mainLogo} alt="Brillant Lead management" />
             </NavLink>
           </div>
           <div className="menu-icon" onClick={handleShowNavbar}>
